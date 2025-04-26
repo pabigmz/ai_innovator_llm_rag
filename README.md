@@ -1,10 +1,11 @@
 # AI Innovator workshops  LLM and RAG
+
 ## Overview
 
 - workshop นี้เป็นแชทบอทใช้งาน **Large Language Model (LLM)**กับการใช้เทคนิค   **Retrieval-Augmented Generation (RAG)** 
 - โดยใช้ **Streamlit** สำหรับสร้างอินเทอร์เฟซผู้ใช้ (UI),
 - มี **Qdrant vecter database** เป็นฐานข้อมูลเวกเตอร์ 
-- เรียกใช้งาน **Groq** เป็นโมเดลภาษา (LLM) ที่ใช้สร้างคำตอบ แชทบอทนี้สามารถประมวลผลไฟล์ PDF, แยกข้อความจากไฟล์, และ ตอบคำถามผู้ใช้โดยใช้ข้อมูลจากไฟล์ PDF ที่อัปโหลด
+- เรียกใช้งาน **Groq** เป็นโมเดลภาษา (LLM) ที่ใช้สร้างคำตอบ แชทบอทนี้สามารถประมวลผลไฟล์ **PDF**, แยกข้อความจากไฟล์, และ ตอบคำถามผู้ใช้โดยใช้ข้อมูลจากไฟล์ PDF ที่อัปโหลด
 ---
 ## คุณสมบัติ (Features)
 
@@ -27,30 +28,30 @@
 
 ## การติดตั้ง (Installation)
 
-## step 1.  clone with AI Innovator On GitHub
+## clone with AI Innovator On GitHub
 
 ```bash  
 git clone https://github.com/JeerasakAnanta/ai_innovator_llm_rag.git
 ```
 
-2. **สร้าง virtual environment** (จำเป็น):
+1. **สร้าง virtual environment** (จำเป็น):
    - window 
    ```bash
    python -m venv .llm_rag
    .llm_rag\Scripts\activate
    ```
 
-3. **ติดตั้ง dependencies**:
+2. **ติดตั้ง dependencies**
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **ตั้งค่าไฟล์ `.env`**:
+3. **ตั้งค่าไฟล์ `.env`**
    - สร้างไฟล์ชื่อ `.env` ในโฟลเดอร์หลัก
    - เพิ่ม Groq API Key ของคุณลงในไฟล์:
      ```bash
       GROQ_API_KEY=Your_Groq_Api_Key_Here
-     ``
+     ```
 ---
 ## การรันแอปพลิเคชัน
 
@@ -66,8 +67,7 @@ git clone https://github.com/JeerasakAnanta/ai_innovator_llm_rag.git
 4. เมื่อประมวลผลไฟล์ PDF เสร็จสิ้น คุณสามารถเริ่มถามคำถามในช่องแชทได้
 
 ---
-
-## วิธีการทำงาน
+## วิธีการทำงาน (Workflow)
 
 ### 1. **การประมวลผลไฟล์ PDF**
    - แอปพลิเคชันใช้ `PyPDF2` เพื่อแยกข้อความจากไฟล์ PDF ที่อัปโหลด
