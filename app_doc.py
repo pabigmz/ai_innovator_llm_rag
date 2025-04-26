@@ -99,9 +99,13 @@ def generate_answer(query):
 
 # 7. สร้างอินเทอร์เฟซด้วย Streamlit
 def main():
-    print(os.getenv("GROQ_API_KEY"))
-    st.title("RAG Chatbot สำหรับข้อมูล ที่เที่ยวในจังหวัดน่าน")
-    st.write("สวัสดี! ฉันคือ Chatbot ที่ช่วยตอบคำถามเกี่ยวกับจังหวัดน่าน")
+    st.set_page_config(
+        page_title="RAG Chatbot  ",
+        page_icon=":robot:",
+        layout="wide",
+    )
+    st.title("AI Innovator LLM & RAG")
+    st.subheader("Chatbot ที่ช่วยตอบคำถามเกี่ยวกับสถานที่ท่องเที่ยวในจังหวัดน่าน")
 
     # เพิ่มข้อมูลเอกสารลงใน Qdrant
     add_documents_to_qdrant(documents)
@@ -110,13 +114,31 @@ def main():
     # รับคำถามจากผู้ใช้
     query = st.text_input("คุณ: ", placeholder="พิมพ์คำถามของคุณที่นี่...")
 
+    if "messages" not in st.session_state:
+        st.session_state["messages"] = [
+            {
+                "role": "assistant",
+                "content": "สวัสดี มีอะไรให้ช่วยไหม :)",
+            }
+        ]
+
     if st.button("ส่ง"):
         if query:
             # สร้างคำตอบ
             answer = generate_answer(query)
-            st.write("Bot:", answer)
+            st.session_state["messages"].append({"role": "user", "content": query})
+            st.session_state["messages"].append(
+                {"role": "assistant", "content": answer}
+            )
         else:
             st.warning("กรุณาพิมพ์คำถามก่อนส่ง")
+
+    # แสดงผลลัพธ์
+    for message in st.session_state["messages"]:
+        if message["role"] == "assistant":
+            st.write("Bot:", message["content"])
+        elif message["role"] == "user":
+            st.write("คุณ:", message["content"])
 
 
 # เรียกใช้แอปพลิเคชัน
