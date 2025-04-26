@@ -52,12 +52,16 @@ git clone https://github.com/JeerasakAnanta/ai_innovator_llm_rag.git
      ```bash
       GROQ_API_KEY=Your_Groq_Api_Key_Here
      ```
+   - ถ้าไม่ได้ให้ เพิ่ม โดยตรงเลย 
+      ```bash 
+      set GROQ_API_KEY=Your_Groq_Api_Key_Here
+      ```
 ---
 ## การรันแอปพลิเคชัน
 
 1. รันแอปพลิเคชันด้วย Streamlit:
    ```bash
-   streamlit run app.py
+   streamlit run app_doc.py
    ```
 
 2. เปิดเบราว์เซอร์และไปที่ URL ที่แสดงใน terminal (ปกติจะเป็น `http://localhost:8501`)
