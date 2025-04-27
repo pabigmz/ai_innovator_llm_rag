@@ -105,6 +105,11 @@ def main():
         layout="wide",
     )
     st.title("AI Innovator LLM & RAG")
+
+    st.subheader("ผู้พัฒนา AI Innovator LLM & RAG")
+    st.write("พิชยะ สารเถื่อนแก้ว")
+
+
     st.subheader("Chatbot ที่ช่วยตอบคำถามเกี่ยวกับสถานที่ท่องเที่ยวในจังหวัดน่าน")
 
     # เพิ่มข้อมูลเอกสารลงใน Qdrant
